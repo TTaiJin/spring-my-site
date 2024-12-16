@@ -50,7 +50,7 @@
 
         <!-- 게시글 목록 -->
         <ul>
-            <li th:each="article : ${articles}">
+            <li th:each="article : ${articleList}">
                 <a th:href="@{'/articles/' + ${article.id}}"><span th:text="${article.subject}">게시글 제목</span></a>
                 <p th:text="${article.content}">게시글 요약</p>
             </li>

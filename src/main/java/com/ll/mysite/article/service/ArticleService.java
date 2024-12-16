@@ -5,6 +5,8 @@ import com.ll.mysite.article.repository.ArticleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class ArticleService {
@@ -16,5 +18,9 @@ public class ArticleService {
         article.setSubject(subject);
         article.setContent(content);
         this.articleRepository.save(article);
+    }
+
+    public List<Article> findAll() {
+        return this.articleRepository.findAll();
     }
 }
