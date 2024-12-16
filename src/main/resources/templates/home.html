@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>홈 - 게시글 목록</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+        a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .new-article-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .new-article-link:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div>
+        <h1>게시글 목록</h1>
+        <p>아래에 최신 게시글이 표시됩니다:</p>
+
+        <!-- 게시글 목록 -->
+        <ul>
+            <li th:each="article : ${articles}">
+                <a th:href="@{'/articles/' + ${article.id}}"><span th:text="${article.subject}">게시글 제목</span></a>
+                <p th:text="${article.content}">게시글 요약</p>
+            </li>
+        </ul>
+
+        <!-- 게시물 작성 버튼 -->
+        <p>
+            <a class="new-article-link" href="/article/create">새 게시글 작성</a>
+        </p>
+    </div>
+</div> <!-- /container -->
+</body>
+</html>
